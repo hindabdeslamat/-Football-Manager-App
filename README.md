@@ -1,4 +1,29 @@
-<<<<<<< HEAD
+=======
+# -Football-Manager-App
+⚽ Football Manager App A full-featured React + Redux web application that allows users to manage football players, create and complete matches, and track top scorers dynamically.
+🛠 Features
+✅ Add, edit, and list football players with images.
+
+🏟️ Create and finish football matches.
+
+🏆 Live Top Scorers ranking.
+
+📸 Upload player images to a Node.js Express backend using Multer.
+
+🎨 Beautiful, user-friendly UI with custom styling.
+
+🔁 State management powered by Redux.
+
+📁 File structure organized for scalability.
+
+💻 Technologies Used
+React
+
+Redux
+
+JavaScript (ES6+)
+
+Express.js
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -69,32 +94,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# -Football-Manager-App
-⚽ Football Manager App A full-featured React + Redux web application that allows users to manage football players, create and complete matches, and track top scorers dynamically.
-🛠 Features
-✅ Add, edit, and list football players with images.
 
-🏟️ Create and finish football matches.
-
-🏆 Live Top Scorers ranking.
-
-📸 Upload player images to a Node.js Express backend using Multer.
-
-🎨 Beautiful, user-friendly UI with custom styling.
-
-🔁 State management powered by Redux.
-
-📁 File structure organized for scalability.
-
-💻 Technologies Used
-React
-
-Redux
-
-JavaScript (ES6+)
-
-Express.js
 
 Multer (for file uploads)
 
