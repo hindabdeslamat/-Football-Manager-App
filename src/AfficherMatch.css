@@ -1,0 +1,50 @@
+.match-container {
+  padding: 40px;
+  background-color: #f1f5f9;
+  min-height: 100vh;
+}
+
+.title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #1e293b;
+}
+
+.match-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.match-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.match-card:hover {
+  transform: translateY(-5px);
+}
+
+.match-title {
+  font-size: 1.4rem;
+  color: #3b82f6;
+  margin-bottom: 10px;
+}
+
+.match-info,
+.match-vs,
+.match-winner {
+  margin: 5px 0;
+  color: #475569;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: gray;
+  margin-top: 50px;
+}

@@ -1,0 +1,57 @@
+/* TerminerMatch.css - تصميم عصري واحترافي */
+
+.terminer-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(to bottom, #ffffff, #e8f0fe);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.terminer-container h1 {
+  text-align: center;
+  color: #1d3557;
+  margin-bottom: 20px;
+}
+
+.form-match label {
+  font-weight: 600;
+  margin-top: 15px;
+  display: block;
+  color: #333;
+}
+
+.form-match input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #bfc0c0;
+  font-size: 16px;
+  transition: border 0.3s;
+}
+
+.form-match input:focus {
+  border-color: #457b9d;
+  outline: none;
+  box-shadow: 0 0 3px rgba(69, 123, 157, 0.4);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 25px;
+  background-color: #1d3557;
+  color: #f1faee;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #457b9d;
+}
