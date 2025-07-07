@@ -1,54 +1,49 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FinishMatch } from "./StoreFootball";
 import "./TerminerMatch.css";
-import './GlobalStyles.css';
 
-// Ce composant permet de terminer un match en spécifiant l'ID du match et l'ID du gagnant
 export default function TerminerMatch() {
   const dispatch = useDispatch();
-  const [matchId, setMatchId] = useState("");
-  const [winnerId, setWinnerId] = useState("");
+  const matches = useSelector((state) => state.matches);
+  const players = useSelector((state) => state.players);
+
+  const [form, setForm] = useState({ id: "", idGagnant: "" });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (!matchId || !winnerId) {
-      alert("Veuillez remplir les deux champs.");
-      return;
-    }
-
-    dispatch(FinishMatch(parseInt(matchId), parseInt(winnerId)));
-    alert("✅ Match terminé !");
-    setMatchId("");
-    setWinnerId("");
+    dispatch(FinishMatch(form.id, form.idGagnant));
+    alert("✅ Match terminé avec succès");
+    setForm({ id: "", idGagnant: "" });
   };
 
   return (
-    <div className="terminer-container">
-      <h1>Terminer un match</h1>
+    <div className="form-container">
+      <h2>Terminer un Match</h2>
       <form onSubmit={handleSubmit} className="form-match">
         <label>ID du match:</label>
-        <input
-          type="number"
-          value={matchId}
-          onChange={(e) => setMatchId(e.target.value)}
-          required
-        />
-        <br />
+        <select name="id" value={form.id} onChange={handleChange} required>
+          <option value="">--Sélectionner--</option>
+          {matches.map((match) => (
+            <option key={match.id} value={match.id}>Match #{match.id}</option>
+          ))}
+        </select>
 
-        <label>ID du gagnant:</label>
-        <input
-          type="number"
-          value={winnerId}
-          onChange={(e) => setWinnerId(e.target.value)}
-          required
-        />
-        <br />
+        <label>Gagnant:</label>
+        <select name="idGagnant" value={form.idGagnant} onChange={handleChange} required>
+          <option value="">--Sélectionner--</option>
+          {players.map((p) => (
+            <option key={p.id} value={p.id}>{p.nom} {p.prenom}</option>
+          ))}
+        </select>
 
         <button type="submit">Terminer</button>
       </form>
     </div>
   );
 }
-// Ce composant permet de terminer un match en spécifiant l'ID du match et l

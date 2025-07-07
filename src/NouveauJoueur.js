@@ -1,10 +1,10 @@
-// NouveauJoueur.jsx
+
+import './GlobalStyles.css';
 import React, { useState } from "react";
+import axios from "axios";
 import { useDispatch } from "react-redux";
 import { AddPlayer } from "./StoreFootball";
 import "./NouveauJoueur.css";
-import './GlobalStyles.css';
-
 
 export default function NouveauJoueur() {
   const dispatch = useDispatch();
@@ -45,65 +45,45 @@ export default function NouveauJoueur() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const formData = new FormData();
-    formData.append("id", newPlayer.id);
-    formData.append("nom", newPlayer.nom);
-    formData.append("prenom", newPlayer.prenom);
-    formData.append("age", newPlayer.age);
-    formData.append("sexe", newPlayer.sexe);
-    formData.append("score", newPlayer.score);
-    if (newPlayer.photo) formData.append("photo", newPlayer.photo);
+    for (let key in newPlayer) {
+      formData.append(key, newPlayer[key]);
+    }
 
     try {
-      const response = await fetch("http://localhost:5000/api/players", {
-        method: "POST",
-        body: formData,
-      });
-
-      if (!response.ok) throw new Error("Erreur de serveur");
-
-      const data = await response.json();
-
-      dispatch(AddPlayer(data.player));
+      const res = await axios.post("http://localhost:5000/api/players", formData);
       alert("✅ Joueur ajouté avec succès !");
-
+      dispatch(AddPlayer(res.data.player));
       setNewPlayer({ id: "", nom: "", prenom: "", age: "", sexe: "", score: "", photo: null });
       setPreview(null);
-    } catch (error) {
-      alert("❌ Une erreur s'est produite !");
-      console.error(error);
+    } catch (err) {
+      console.error(err);
+      alert("❌ Une erreur s'est produite.");
     }
   };
 
   return (
     <div className="form-container">
       <h2>Ajouter un nouveau joueur</h2>
-      <form onSubmit={handleSubmit} className="form-match">
+      <form onSubmit={handleSubmit} className="form-match" encType="multipart/form-data">
         <label>ID:</label>
         <input type="number" name="id" value={newPlayer.id} onChange={handleChange} required />
-
         <label>Nom:</label>
         <input type="text" name="nom" value={newPlayer.nom} onChange={handleChange} required />
-
         <label>Prénom:</label>
         <input type="text" name="prenom" value={newPlayer.prenom} onChange={handleChange} required />
-
         <label>Âge:</label>
         <input type="number" name="age" value={newPlayer.age} onChange={handleChange} required />
-
         <label>Sexe:</label>
         <select name="sexe" value={newPlayer.sexe} onChange={handleChange} required>
           <option value="">--Choisir--</option>
           <option value="homme">Homme</option>
           <option value="femme">Femme</option>
         </select>
-
         <label>Score:</label>
         <input type="number" name="score" value={newPlayer.score} onChange={handleChange} required />
-
         <label>Photo:</label>
-        <input type="file" accept="image/*" name="photo" onChange={handleFileChange} />
+        <input type="file" accept="image/*" onChange={handleFileChange} />
 
         {preview && (
           <div className="preview-container">

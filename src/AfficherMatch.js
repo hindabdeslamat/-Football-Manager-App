@@ -1,33 +1,68 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AddMatch } from "./StoreFootball";
 import "./AfficherMatch.css";
-import './GlobalStyles.css';
 
-export default function AfficherMatch() {
-  const ListeMatch = useSelector((state) => state.matches);
+export default function NouveauMatch() {
+  const dispatch = useDispatch();
+  const players = useSelector((state) => state.players);
+
+  const [form, setForm] = useState({
+    id: "",
+    date: "",
+    idJoueur1: "",
+    idJoueur2: "",
+    idGagnant: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(AddMatch(form.id, form.date, form.idJoueur1, form.idJoueur2, form.idGagnant));
+    alert("✅ Match ajouté avec succès");
+    setForm({ id: "", date: "", idJoueur1: "", idJoueur2: "", idGagnant: "" });
+  };
 
   return (
-    <div className="match-container">
-      <h1 className="title">📅 Liste des matchs</h1>
+    <div className="form-container">
+      <h2>Ajouter un Nouveau Match</h2>
+      <form onSubmit={handleSubmit} className="form-match">
+        <label>ID Match:</label>
+        <input type="text" name="id" value={form.id} onChange={handleChange} required />
 
-      {ListeMatch.length !== 0 ? (
-        <div className="match-grid">
-          {ListeMatch.map((match) => (
-            <div key={match.id} className="match-card">
-              <h2 className="match-title">Match #{match.id}</h2>
-              <p className="match-info">{match.date}</p>
-              <p className="match-vs">
-                🆚 {match.idJoueur1} <strong>vs</strong> {match.idJoueur2}
-              </p>
-              <p className="match-winner">
-                🏆 Gagnant: <strong>{match.idGagnant}</strong>
-              </p>
-            </div>
+        <label>Date:</label>
+        <input type="date" name="date" value={form.date} onChange={handleChange} required />
+
+        <label>Joueur 1:</label>
+        <select name="idJoueur1" value={form.idJoueur1} onChange={handleChange} required>
+          <option value="">--Sélectionner--</option>
+          {players.map((p) => (
+            <option key={p.id} value={p.id}>{p.nom} {p.prenom}</option>
           ))}
-        </div>
-      ) : (
-        <p className="empty-message">Aucun match pour le moment.</p>
-      )}
+        </select>
+
+        <label>Joueur 2:</label>
+        <select name="idJoueur2" value={form.idJoueur2} onChange={handleChange} required>
+          <option value="">--Sélectionner--</option>
+          {players.map((p) => (
+            <option key={p.id} value={p.id}>{p.nom} {p.prenom}</option>
+          ))}
+        </select>
+
+        <label>Gagnant:</label>
+        <select name="idGagnant" value={form.idGagnant} onChange={handleChange} required>
+          <option value="">--Sélectionner--</option>
+          {players.map((p) => (
+            <option key={p.id} value={p.id}>{p.nom} {p.prenom}</option>
+          ))}
+        </select>
+
+        <button type="submit">Ajouter</button>
+      </form>
     </div>
   );
 }

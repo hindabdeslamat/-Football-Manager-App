@@ -9,7 +9,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg-light);
-  color: #1e293b;
+  color: var(--primary-color);
   margin: 0;
   padding: 0;
 }
@@ -28,8 +28,9 @@ button {
   border-radius: 8px;
   cursor: pointer;
 }
+
 button:hover {
-  background: #2563eb;
+  background: linear-gradient(to right, #1d3557, #457b9d);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -41,7 +42,7 @@ button:hover {
 }
 
 body {
-  background-color: #f4f4f4;
+  background-color: var(--bg-light);
 }
 
 .app-container {
@@ -52,7 +53,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: #1e293b;
+  background: linear-gradient(to right, #1d3557, #457b9d);
   color: white;
   padding: 20px;
   display: flex;
@@ -64,11 +65,13 @@ body {
 .logo-container {
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .logo {
   height: 50px;
   margin-right: 15px;
+  border-radius: 12px;
 }
 
 .site-title {
@@ -84,14 +87,14 @@ body {
 
 .nav-links li a {
   text-decoration: none;
-  color: #f1f1f1;
+  color: var(--text-light);
   font-weight: 500;
   padding: 8px 12px;
   transition: background 0.3s, color 0.3s;
 }
 
 .nav-links li a:hover {
-  background-color: #334155;
+  background-color: var(--secondary-color);
   border-radius: 5px;
 }
 
@@ -109,17 +112,19 @@ body {
   padding: 40px;
   background-color: #e2e8f0;
   border-top: 1px solid #ccc;
+  border-radius: 16px;
+  margin-bottom: 30px;
 }
 
 .hero-text h1 {
   font-size: 2.5rem;
-  color: #1e293b;
+  color: var(--primary-color);
 }
 
 .hero-text p {
   margin-top: 10px;
   font-size: 1.2rem;
-  color: #334155;
+  color: var(--secondary-color);
 }
 
 .hero-card img {
@@ -130,8 +135,9 @@ body {
 
 /* Footer */
 .footer {
-  background-color: #1e293b;
+  background-color: var(--primary-color);
   color: white;
   text-align: center;
   padding: 15px;
-}
+  margin-top: auto;
+} 

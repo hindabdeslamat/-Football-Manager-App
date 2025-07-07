@@ -1,53 +1,93 @@
+
 .acceuil-container {
+  padding: 30px;
+  background-color: #f5f9ff;
+}
+
+.hero-section {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 60px 40px;
-  background-color: #f1f5f9;
   flex-wrap: wrap;
-}
-
-.acceuil-text {
-  flex: 1;
-  padding-right: 20px;
-}
-
-.acceuil-text h1 {
-  font-size: 2.8rem;
-  color: #1e293b;
-}
-
-.acceuil-text p {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  color: #475569;
-}
-
-.start-button {
-  margin-top: 25px;
-  padding: 12px 24px;
-  background-color: #3b82f6;
-  border: none;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(to right, #1d3557, #457b9d);
+  padding: 40px;
+  border-radius: 16px;
   color: white;
+  margin-bottom: 40px;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #f1faee;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.cta-button {
+  background-color: #f1faee;
+  color: #1d3557;
   font-weight: bold;
-  font-size: 1rem;
+  padding: 12px 24px;
   border-radius: 8px;
+  border: none;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-.start-button:hover {
-  background-color: #2563eb;
+.cta-button:hover {
+  background-color: #a8dadc;
 }
 
-.acceuil-image {
+.hero-image {
   flex: 1;
   text-align: center;
 }
 
-.acceuil-image img {
+.hero-image img {
   max-width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card h2 {
+  margin-bottom: 10px;
+  color: #b9cde8;
+}
+
+.feature-card p {
+  color: #555;
+}
+.feature-card img {
+  max-width: 80px;
+  margin-bottom: 15px;
 }
