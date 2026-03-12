@@ -1,0 +1,101 @@
+.standings-table {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 8px;
+}
+.standings-header {
+  display: grid;
+  grid-template-columns: 36px 1fr 40px 40px 40px 40px 40px 40px 40px 52px;
+  gap: 8px; padding: 12px 20px;
+  background: var(--bg3); border-bottom: 1px solid var(--border);
+  font-size: 11px; font-weight: 700; color: var(--muted2);
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.standings-row {
+  display: grid;
+  grid-template-columns: 36px 1fr 40px 40px 40px 40px 40px 40px 40px 52px;
+  gap: 8px; padding: 14px 20px;
+  border-bottom: 1px solid var(--border); align-items: center;
+  font-size: 14px; font-weight: 500;
+  transition: background 0.15s;
+}
+.standings-row:last-child { border-bottom: none; }
+.standings-row:hover { background: var(--bg3); }
+.standings-row--first { border-left: 3px solid var(--gold); }
+
+.standings-pos {
+  font-family: var(--font-display);
+  font-size: 16px; font-weight: 800; color: var(--muted);
+}
+.standings-team { display: flex; align-items: center; gap: 10px; }
+.standings-flag { font-size: 20px; }
+.standings-name { font-weight: 700; color: var(--text); }
+.standings-league { font-size: 11px; color: var(--muted); margin-left: 4px; }
+.standings-win { color: var(--green); font-weight: 700; }
+.standings-loss { color: var(--accent2); font-weight: 700; }
+.standings-pts {
+  font-family: var(--font-display); font-size: 20px; font-weight: 900;
+  color: var(--accent);
+}
+
+.teams-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.team-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  border-top: 3px solid var(--team-color, var(--accent));
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.team-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.team-card__header {
+  display: flex; align-items: center; gap: 14px;
+  padding: 20px;
+}
+.team-card__flag { font-size: 36px; }
+.team-card__name {
+  font-family: var(--font-display);
+  font-size: 20px; font-weight: 800; color: var(--text);
+}
+.team-card__league { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.team-card__pts {
+  margin-left: auto;
+  font-family: var(--font-display); font-size: 28px; font-weight: 900;
+  color: var(--team-color, var(--accent));
+}
+.team-card__pts span { font-size: 13px; font-weight: 400; color: var(--muted); }
+
+.team-card__record {
+  display: flex; gap: 0;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.team-card__rec-item {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  padding: 14px 8px;
+  border-right: 1px solid var(--border);
+}
+.team-card__rec-item:last-child { border-right: none; }
+.team-card__rec-item span {
+  font-family: var(--font-display); font-size: 22px; font-weight: 900; color: var(--text);
+}
+.team-card__rec-item small { font-size: 11px; color: var(--muted); text-transform: uppercase; }
+
+.team-card__squad { padding: 16px 20px; }
+.team-card__squad-title { font-size: 12px; font-weight: 700; color: var(--muted2); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+.team-card__player {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.team-card__player:last-child { border-bottom: none; }
+.team-card__player-name { flex: 1; color: var(--text); font-weight: 500; }
+.team-card__player-pos { font-size: 11px; color: var(--muted); }
+.team-card__player-goals { font-size: 12px; color: var(--green); font-weight: 700; }
+
+@media (max-width: 768px) {
+  .standings-header, .standings-row {
+    grid-template-columns: 28px 1fr 32px 32px 32px 32px 32px 32px 32px 44px;
+    gap: 4px; padding: 10px 12px; font-size: 12px;
+  }
+  .standings-league { display: none; }
+}

@@ -1,0 +1,17 @@
+.players-toolbar {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; align-items: center;
+}
+.search-input {
+  padding: 9px 16px; border-radius: 8px;
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text); font-size: 14px; width: 280px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-input:focus {
+  outline: none; border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
+}
+.search-input::placeholder { color: var(--muted); }
+
+.players-count { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+.players-full-list { display: flex; flex-direction: column; gap: 12px; }

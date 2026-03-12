@@ -1,0 +1,16 @@
+.form-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+@media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+
+.finish-match-preview {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 8px; padding: 16px; margin-bottom: 18px;
+}
+.finish-match-teams {
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--font-display); font-size: 18px; font-weight: 700;
+}
+.finish-vs {
+  color: var(--accent); font-size: 14px; font-weight: 900; letter-spacing: 2px;
+}

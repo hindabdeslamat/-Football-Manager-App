@@ -1,0 +1,46 @@
+.page-header { margin-bottom: 32px; }
+.page-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 900; letter-spacing: 2px;
+  color: var(--text); line-height: 1;
+}
+.page-sub { font-size: 15px; color: var(--muted); margin-top: 8px; }
+
+.matches-filters {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.filter-group { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-btn {
+  padding: 8px 18px; border-radius: 6px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.3px;
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--muted2); transition: all 0.2s;
+}
+.filter-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.15); }
+.filter-btn--active {
+  background: var(--accent); color: #000 !important;
+  border-color: var(--accent);
+}
+
+.league-select {
+  padding: 8px 16px; border-radius: 6px;
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text); font-size: 13px; font-weight: 600;
+  cursor: pointer; margin-left: auto;
+}
+.league-select option { background: var(--bg2); }
+
+.matches-count { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+
+.matches-full-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+.empty-state {
+  text-align: center; padding: 80px 20px;
+  color: var(--muted); font-size: 16px;
+}
